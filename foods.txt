@@ -1,0 +1,10 @@
+Apple,Fruits,Apple
+Banana,Fruits,Banana
+Carrot,Vegetables,Carrot
+Spinach,Vegetables,Spinach
+Rice,Grains,Rice
+Oats,Grains,Oats
+Chicken,Protein,Chicken
+Lentils,Protein,Lentils
+Almonds,Snacks,Almonds
+Vegetable Soup,Meals,Carrot;Spinach;Onion

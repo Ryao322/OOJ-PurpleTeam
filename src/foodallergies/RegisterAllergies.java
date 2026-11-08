@@ -5,13 +5,16 @@
 package foodallergies;
 
 import javax.swing.JOptionPane;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
  * @author user
  */
 public class RegisterAllergies extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegisterAllergies.class.getName());
 
     /**
@@ -109,6 +112,11 @@ public class RegisterAllergies extends javax.swing.JFrame {
         });
 
         btnBack.setText("Back to dashboard");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,33 +237,80 @@ public class RegisterAllergies extends javax.swing.JFrame {
         // TODO add your handling code here:
         String allergies = "";
 
-if (chkPeanuts.isSelected()) allergies += "Peanuts, ";
-if (chkTreeNuts.isSelected()) allergies += "Tree Nuts, ";
-if (chkDairy.isSelected()) allergies += "Milk/Dairy, ";
-if (chkEggs.isSelected()) allergies += "Eggs, ";
-if (chkGluten.isSelected()) allergies += "Wheat/Gluten, ";
-if (chkSoy.isSelected()) allergies += "Soy, ";
-if (chkFish.isSelected()) allergies += "Fish, ";
-if (chkShellfish.isSelected()) allergies += "Shellfish, ";
+        if (chkPeanuts.isSelected()) {
+            allergies += "Peanuts, ";
+        }
+        if (chkTreeNuts.isSelected()) {
+            allergies += "Tree Nuts, ";
+        }
+        if (chkDairy.isSelected()) {
+            allergies += "Milk/Dairy, ";
+        }
+        if (chkEggs.isSelected()) {
+            allergies += "Eggs, ";
+        }
+        if (chkGluten.isSelected()) {
+            allergies += "Wheat/Gluten, ";
+        }
+        if (chkSoy.isSelected()) {
+            allergies += "Soy, ";
+        }
+        if (chkFish.isSelected()) {
+            allergies += "Fish, ";
+        }
+        if (chkShellfish.isSelected()) {
+            allergies += "Shellfish, ";
+        }
 
-String severity = cmbSeverity.getSelectedItem().toString();
+        String severity = cmbSeverity.getSelectedItem().toString();
 
-String dietary = "";
+        String dietary = "";
 
-if (chkVegan.isSelected()) dietary += "Vegan, ";
-if (chkVegetarian.isSelected()) dietary += "Vegetarian, ";
-if (chkHalal.isSelected()) dietary += "Halal, ";
-if (chkOther.isSelected()) dietary += "Other, ";
+        if (chkVegan.isSelected()) {
+            dietary += "Vegan, ";
+        }
+        if (chkVegetarian.isSelected()) {
+            dietary += "Vegetarian, ";
+        }
+        if (chkHalal.isSelected()) {
+            dietary += "Halal, ";
+        }
+        if (chkOther.isSelected()) {
+            dietary += "Other, ";
+        }
 
-String additionalInfo = txtAdditionalNotes.getText();
+        String additionalInfo = txtAdditionalNotes.getText();
 
-JOptionPane.showMessageDialog(this,
-    "Allergy Profile Saved Successfully!\n\n"
-    + "Allergies: " + allergies
-    + "\nSeverity: " + severity
-    + "\nDietary Preferences: " + dietary
-    + "\nAdditional Information: " + additionalInfo);
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter("allergies.txt", true));
+
+            writer.println("Allergies: " + allergies);
+            writer.println("Severity: " + severity);
+            writer.println("Dietary Preferences: " + dietary);
+            writer.println("Additional Information: " + additionalInfo);
+            writer.println("-----------------------------------");
+
+            writer.close();
+
+            JOptionPane.showMessageDialog(this,
+                    "Allergy Profile Saved Successfully!\n\n"
+                    + "Allergies: " + allergies
+                    + "\nSeverity: " + severity
+                    + "\nDietary Preferences: " + dietary
+                    + "\nAdditional Information: " + additionalInfo);
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error saving allergy profile: " + e.getMessage());
+        }
     }//GEN-LAST:event_btnSaveAllergiesActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        AllergyDashboard dashboard = new AllergyDashboard();
+        dashboard.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

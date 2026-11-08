@@ -9,7 +9,7 @@ package foodallergies;
  * @author user
  */
 public class AllergyDashboard extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AllergyDashboard.class.getName());
 
     /**
@@ -56,8 +56,18 @@ public class AllergyDashboard extends javax.swing.JFrame {
         });
 
         btnManageProfile.setText("Manage Dietary Profile");
+        btnManageProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProfileActionPerformed(evt);
+            }
+        });
 
         btnFindFood.setText("Find Suitable Food");
+        btnFindFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFindFoodActionPerformed(evt);
+            }
+        });
 
         btnRecipes.setText("Healthy Recipe Suggestions");
 
@@ -135,7 +145,24 @@ public class AllergyDashboard extends javax.swing.JFrame {
 
     private void btnRegisterAllergiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterAllergiesActionPerformed
         // TODO add your handling code here:
+        RegisterAllergies register = new RegisterAllergies();
+        register.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRegisterAllergiesActionPerformed
+
+    private void btnManageProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileActionPerformed
+        // TODO add your handling code here:
+        DietaryProfile profile = new DietaryProfile();
+        profile.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnManageProfileActionPerformed
+
+    private void btnFindFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindFoodActionPerformed
+        // TODO add your handling code here:
+        FindSuitableFood food = new FindSuitableFood();
+        food.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFindFoodActionPerformed
 
     /**
      * @param args the command line arguments

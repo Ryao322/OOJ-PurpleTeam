@@ -146,11 +146,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Manage Dietary Profile"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageProfileActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnFindFood">
           <Properties>
             <Property name="text" type="java.lang.String" value="Find Suitable Food"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindFoodActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRecipes">
           <Properties>
