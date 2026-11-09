@@ -11,54 +11,16 @@ package benita.oops.benitaca;
 //store information about individual food banks
 public class FoodBank {
     
-    FoodBankHomePage myGUI = new FoodBankHomePage();
-    myGUI.setVisible(true);
+    FoodBankHomePageGUI  FoodBankHomePageGUIAppObj = new FoodBankHomePageGUI();
+    FoodBankHomePageGUIAppObj.setVisible(true);
     
-    public static void main(String[]args){
+    /** PersonsGUI personsGuiAppObject = new PersonsGUI();
+        
+        personsGuiAppObject.setVisible(true);
+        **/
     
-    private String foodBankName;
-    private String address;
-    private int openingHours;
-    private String dietaryOptions;
-
-    
-    //Constructor 
-    
-    public void setFoodBankName(String inName){
-        foodBankName = inName;    
-    }
+   public static void main(String[] args) {
    
-    public void setAddress(String inLocation){
-        address = inLocation;
-    }
-    
-    public void setOpeningHours(int inHours){
-        openingHours = inHours;
-    }
-    
-    public void setDietaryOptions(String inDiet){
-        dietaryOptions = inDiet;
-    }
-    
-    //Getters
-    
-    public String getFoodBankName(){
-       return foodBankName;
-    }
-    
-    public String getAddress(){
-       return address;
-    }
-   
-    public String getDietaryOptions(){
-        return dietaryOptions;
-    }
-    
-    public int getOpeningHours(){
-       return openingHours;
-    }
-    
-  }
 
 }
-
+}
