@@ -3,7 +3,7 @@ package com.mycompany.zerohunger;
 import javax.swing.*;
 import java.awt.*;
 import foodwastetracker.FoodWasteGUI;
-import foodallergies.;
+import foodallergies.AllergyDashboard;
 import 
 
 
