@@ -3,6 +3,9 @@ package com.mycompany.zerohunger;
 import javax.swing.*;
 import java.awt.*;
 import foodwastetracker.FoodWasteGUI;
+import zero.hunger_food.allergy;
+import 
+
 
 /**
  * @author Group (Benita, Ryan, Marie Noela)
