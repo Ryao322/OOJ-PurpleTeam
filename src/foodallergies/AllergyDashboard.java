@@ -10,6 +10,13 @@ package foodallergies;
  */
 public class AllergyDashboard extends javax.swing.JFrame {
 
+    private String fullName;
+
+    public AllergyDashboard(String fullName) {
+        initComponents();
+        this.fullName = fullName;
+    }
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AllergyDashboard.class.getName());
 
     /**
@@ -70,6 +77,11 @@ public class AllergyDashboard extends javax.swing.JFrame {
         });
 
         btnRecipes.setText("Healthy Recipe Suggestions");
+        btnRecipes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecipesActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("SDG 2 – Zero Hunger | Food for Everyone");
 
@@ -159,10 +171,18 @@ public class AllergyDashboard extends javax.swing.JFrame {
 
     private void btnFindFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindFoodActionPerformed
         // TODO add your handling code here:
-        FindSuitableFood food = new FindSuitableFood();
+        FindSuitableFood food = new FindSuitableFood(this.fullName);
         food.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnFindFoodActionPerformed
+
+    private void btnRecipesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecipesActionPerformed
+        // TODO add your handling code here:
+        HealthyRecipeSuggestions recipes = new HealthyRecipeSuggestions(this.fullName);
+
+        recipes.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRecipesActionPerformed
 
     /**
      * @param args the command line arguments

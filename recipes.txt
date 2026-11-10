@@ -1,0 +1,5 @@
+Vegetable Soup|Meals|Carrot;Spinach;Onion;Potato|Chop vegetables and boil until soft. Add seasoning and serve.
+Chicken Salad|Meals|Chicken;Lettuce;Tomato;Cucumber|Cook chicken thoroughly. Mix with vegetables and serve.
+Lentil Stew|Meals|Lentils;Tomato;Onion;Carrot|Boil lentils until soft. Add vegetables and simmer.
+Fruit Salad|Snacks|Apple;Banana;Orange;Grapes|Wash and chop fruits. Mix together and serve.
+Oatmeal Porridge|Breakfast|Oats;Water;Banana|Cook oats in water until creamy. Add sliced banana.
