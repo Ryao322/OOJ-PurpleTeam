@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -16,13 +17,16 @@ import javax.swing.JOptionPane;
  */
 public class FindSuitableFood extends javax.swing.JFrame {
 
+    private String fullName;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FindSuitableFood.class.getName());
 
     /**
      * Creates new form FindSuitableFood
      */
-    public FindSuitableFood() {
+    public FindSuitableFood(String fullName) {
         initComponents();
+        this.fullName = fullName;
     }
 
     /**
@@ -55,6 +59,11 @@ public class FindSuitableFood extends javax.swing.JFrame {
         jLabel2.setText("Search for meals that match your dietary needs.");
 
         txtSearchFood.setText("\n");
+        txtSearchFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchFoodActionPerformed(evt);
+            }
+        });
 
         cmbFoodCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Categories", "Fruits", "Vegetables", "Grains", "Dairy", "Protein", "Snacks", "Meals" }));
 
@@ -99,6 +108,7 @@ public class FindSuitableFood extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cmbFoodCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(53, 53, 53)
@@ -106,8 +116,7 @@ public class FindSuitableFood extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(34, 34, 34)
-                                .addComponent(txtSearchFood, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4)))
+                                .addComponent(txtSearchFood, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,11 +132,11 @@ public class FindSuitableFood extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtSearchFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbFoodCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchFood))
@@ -135,7 +144,7 @@ public class FindSuitableFood extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
         );
@@ -153,68 +162,148 @@ public class FindSuitableFood extends javax.swing.JFrame {
     private void btnSearchFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchFoodActionPerformed
         // TODO add your handling code here:
         String searchFood = txtSearchFood.getText().trim().toLowerCase();
-String selectedCategory = cmbFoodCategory.getSelectedItem().toString();
+        String selectedCategory = cmbFoodCategory.getSelectedItem().toString();
 
-if (searchFood.isEmpty()) {
-    JOptionPane.showMessageDialog(this,
-            "Please enter a food or meal name.");
-    return;
-}
-
-StringBuilder results = new StringBuilder();
-
-try {
-    File file = new File("foods.txt");
-    System.out.println("Looking for file at: " + file.getAbsolutePath());
-
-    if (!file.exists()) {
-        JOptionPane.showMessageDialog(this,
-                "Food data file not found.");
-        return;
-    }
-
-    BufferedReader reader = new BufferedReader(new FileReader(file));
-
-    String line;
-
-    while ((line = reader.readLine()) != null) {
-
-        String[] foodDetails = line.split(",");
-
-        if (foodDetails.length >= 3) {
-
-            String foodName = foodDetails[0].trim();
-            String category = foodDetails[1].trim();
-            String ingredients = foodDetails[2].trim();
-
-            boolean matchesName = foodName.toLowerCase()
-                    .contains(searchFood);
-
-            boolean matchesCategory = selectedCategory.equals("All Categories")
-                    || category.equalsIgnoreCase(selectedCategory);
-
-            if (matchesName && matchesCategory) {
-                results.append("Food: ").append(foodName).append("\n");
-                results.append("Category: ").append(category).append("\n");
-                results.append("Ingredients: ").append(ingredients).append("\n");
-                results.append("--------------------------------\n");
-            }
+        if (searchFood.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Please enter a food or meal name.");
+            return;
         }
-    }
 
-    reader.close();
+        // Get the current user's saved allergies
+        ArrayList<String> userAllergies = new ArrayList<>();
 
-    if (results.length() == 0) {
-        txtFoodResults.setText("No matching foods found.");
-    } else {
-        txtFoodResults.setText(results.toString());
-    }
+        boolean profileFound = false;
+        boolean currentUserFound = false;
 
-} catch (IOException e) {
-    JOptionPane.showMessageDialog(this,
-            "Error reading food data: " + e.getMessage());
-}
+        // STEP 1: Read allergies.txt
+        try (BufferedReader allergyReader
+                = new BufferedReader(new FileReader("allergies.txt"))) {
+
+            String allergyLine;
+
+            while ((allergyLine = allergyReader.readLine()) != null) {
+
+                if (allergyLine.startsWith("Name:")) {
+
+                    String savedName = allergyLine.substring(5).trim();
+
+                    currentUserFound
+                            = savedName.equalsIgnoreCase(fullName.trim());
+
+                    if (currentUserFound) {
+                        profileFound = true;
+                    }
+                }
+
+                if (currentUserFound && allergyLine.startsWith("Allergies:")) {
+
+                    String allergyText = allergyLine.substring(10).trim();
+
+                    if (!allergyText.isEmpty()) {
+
+                        for (String allergy : allergyText.split(",")) {
+                            userAllergies.add(allergy.trim().toLowerCase());
+                        }
+                    }
+
+                    break;
+                }
+            }
+
+        } catch (IOException e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Error reading allergies: " + e.getMessage());
+            return;
+        }
+
+        // Make sure the user has a saved profile
+        if (!profileFound) {
+            JOptionPane.showMessageDialog(this,
+                    "No saved allergy profile found for " + fullName);
+            return;
+        }
+
+        StringBuilder results = new StringBuilder();
+
+        // STEP 2: Read foods.txt
+        try (BufferedReader reader
+                = new BufferedReader(new FileReader("foods.txt"))) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] foodDetails = line.split(",", -1);
+
+                if (foodDetails.length >= 3) {
+
+                    String foodName = foodDetails[0].trim();
+                    String category = foodDetails[1].trim();
+                    String ingredients = foodDetails[2].trim();
+
+                    boolean matchesName
+                            = foodName.toLowerCase().contains(searchFood);
+
+                    boolean matchesCategory
+                            = selectedCategory.equals("All Categories")
+                            || category.equalsIgnoreCase(selectedCategory);
+
+                    if (matchesName && matchesCategory) {
+
+                        // STEP 3: Check for allergens
+                        boolean hasAllergen = false;
+
+                        for (String allergy : userAllergies) {
+
+                            if (ingredients.toLowerCase().contains(allergy)) {
+                                hasAllergen = true;
+                                break;
+                            }
+                        }
+
+                        // STEP 4: Only display safe foods
+                        if (!hasAllergen) {
+
+                            results.append("Food: ")
+                                    .append(foodName).append("\n");
+
+                            results.append("Category: ")
+                                    .append(category).append("\n");
+
+                            results.append("Ingredients: ")
+                                    .append(ingredients).append("\n");
+
+                            results.append("--------------------------------\n");
+                        }
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Error reading food data: " + e.getMessage());
+            return;
+        }
+
+        // STEP 5: Display results
+        if (results.length() == 0) {
+
+            txtFoodResults.setText(
+                    "No safe matching foods found for your allergies.");
+
+        } else {
+
+            txtFoodResults.setText(results.toString());
+        }
+
     }//GEN-LAST:event_btnSearchFoodActionPerformed
+
+    private void txtSearchFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchFoodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchFoodActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,7 +327,7 @@ try {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FindSuitableFood().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FindSuitableFood("").setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
