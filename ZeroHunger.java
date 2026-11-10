@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import foodwastetracker.FoodWasteGUI;
 import foodallergies.AllergyDashboard;
-import 
+import benita.oops.benitaca.FoodBank;
 
 
 /**
@@ -76,15 +76,15 @@ public class ZeroHunger extends JFrame {
     // 2. COMMUNITY FOOD BANK DIRECTORY
 
     private void runFoodBankDirectory() {
-        //   new FoodBankGUI().setVisible(true);
+        new FoodBankGUI().setVisible(true);
         JOptionPane.showMessageDialog(this,
                 "Community Food Bank.");
     }
 
     // 3. ALLERGY & DIETARY REQUIREMENTS
 
-    private void runAllergyRequirements() {
-        //   new AllergyGUI().setVisible(true);
+    private void runAllergyDashboard() {
+        new AllergyGUI().setVisible(true);
         JOptionPane.showMessageDialog(this,
                 "Allergy & Dietary Requirements.");
     }
