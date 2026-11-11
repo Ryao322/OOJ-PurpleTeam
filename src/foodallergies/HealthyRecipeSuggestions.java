@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author Marie Noela
  */
 public class HealthyRecipeSuggestions extends javax.swing.JFrame {
 
