@@ -127,7 +127,7 @@ public class HealthyRecipeSuggestions extends javax.swing.JFrame {
 
         boolean currentUserFound = false;
 
-// STEP 1: Read the user's saved allergies
+// Read the user's saved allergies
         try (BufferedReader allergyReader
                 = new BufferedReader(new FileReader("allergies.txt"))) {
 
@@ -162,14 +162,14 @@ public class HealthyRecipeSuggestions extends javax.swing.JFrame {
             return;
         }
 
-// STEP 2: Check whether a profile exists
+// Check whether a profile exists
         if (!currentUserFound) {
             JOptionPane.showMessageDialog(this,
                     "No saved allergy profile found.");
             return;
         }
 
-// STEP 3: Read recipes and filter allergens
+// Read recipes and filter allergens
         StringBuilder results = new StringBuilder();
 
         try (BufferedReader reader
@@ -226,7 +226,7 @@ public class HealthyRecipeSuggestions extends javax.swing.JFrame {
             return;
         }
 
-// STEP 4: Display suitable recipes
+// Display suitable recipes
         if (results.length() == 0) {
 
             txtRecipeResults.setText(
