@@ -81,7 +81,7 @@ public class FoodWasteGUI extends JPanel {
         south.add(saveBtn); south.add(backBtn);
         p.add(south, BorderLayout.SOUTH);
 
-        // saveBtn not wired yet (Checkpoint 2 only)
+        // saveBtn 
         backBtn.addActionListener(e -> cards.show(cardPanel, "menu"));
         return p;
     }
@@ -104,7 +104,7 @@ public class FoodWasteGUI extends JPanel {
         south.add(delBtn); south.add(backBtn);
         p.add(south, BorderLayout.SOUTH);
 
-        // sBtn, aBtn, delBtn not wired yet (Checkpoint 2 only)
+        // sBtn, aBtn, delBtn
         backBtn.addActionListener(e -> cards.show(cardPanel, "menu"));
         return p;
     }
@@ -125,7 +125,7 @@ public class FoodWasteGUI extends JPanel {
         JButton backBtn = new JButton("Back");
         p.add(backBtn, BorderLayout.SOUTH);
 
-        // list selection listener not wired yet (Checkpoint 2 only)
+        // list selection listener 
         backBtn.addActionListener(e -> cards.show(cardPanel, "menu"));
         return p;
     }
