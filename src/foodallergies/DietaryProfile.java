@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author Marie Noela
  */
 public class DietaryProfile extends javax.swing.JFrame {
 

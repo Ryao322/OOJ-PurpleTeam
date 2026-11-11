@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author user
+ * @author Marie Noela
  */
 public class RegisterAllergies extends javax.swing.JFrame {
 
