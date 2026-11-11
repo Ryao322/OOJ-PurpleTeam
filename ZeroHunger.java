@@ -27,37 +27,41 @@ public class ZeroHunger extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
+        statusLabel = new JLabel("Choose an option to get started.", SwingConstants.CENTER);
+        statusLabel.setBounds(50, 310, 800, 25);
+        add(statusLabel);
+
         titleLabel = new JLabel("ZeroHunger Main Menu", SwingConstants.CENTER);
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
         titleLabel.setBounds(50, 30, 800, 40);
         add(titleLabel);
-        
+
     // 1. FOOD WASTE TRACKER section
-        
+
         wasteTrackerBtn = new JButton("1. Food Waste Tracker");
         wasteTrackerBtn.setBounds(40, 120, 260, 60);
         wasteTrackerBtn.addActionListener(e -> {
             statusLabel.setText("Opening Food Waste Tracker...");
-            runFoodWasteGUI().setVisible(true);
+            runFoodWasteGUI();
         });
         add(wasteTrackerBtn);
-        
+
     // 2. COMMUNITY FOOD BANK DIRECTORY section
 
         foodBankBtn = new JButton("2. Community Food Bank Directory");
         foodBankBtn.setBounds(320, 120, 260, 60);
         foodBankBtn.addActionListener(e -> {
             statusLabel.setText("Opening Food Bank Directory...");
-            runFoodBankHomePageGUI().setVisible(true);
+            runFoodBankHomePageGUI();
         });
         add(foodBankBtn);
-        
+
    // 3. ALLERGY & DIETARY REQUIREMENTS section
         allergyBtn = new JButton("3. Allergy & Dietary Requirements");
         allergyBtn.setBounds(600, 120, 260, 60);
         allergyBtn.addActionListener(e -> {
             statusLabel.setText("Opening Allergy & Dietary Requirements...");
-            runAllergyDashboard().setVisible(true);
+            runAllergyDashboard();
         });
         add(allergyBtn);
 
@@ -66,10 +70,6 @@ public class ZeroHunger extends JFrame {
         exitBtn.setBounds(40, 220, 820, 60);
         exitBtn.addActionListener(e -> handleExit());
         add(exitBtn);
-
-        statusLabel = new JLabel("Choose an option to get started.", SwingConstants.CENTER);
-        statusLabel.setBounds(50, 310, 800, 25);
-        add(statusLabel);
     }
 
     // 1. FOOD WASTE TRACKER
