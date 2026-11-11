@@ -6,7 +6,7 @@ package zero.hunger_food.allergy;
 
 /**
  *
- * @author user
+ * @author Marie Noela
  */
 public class ZeroHunger_foodAllergy {
 

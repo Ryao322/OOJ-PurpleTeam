@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 /**
  *
- * @author user
+ * @author Marie Noela
  */
 public class FindSuitableFood extends javax.swing.JFrame {
 
