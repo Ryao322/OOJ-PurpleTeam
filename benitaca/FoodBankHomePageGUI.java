@@ -133,7 +133,7 @@ public class FoodBankHomePageGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFoodBankActionPerformed
     private void screenMessageActionPerformed(java.awt.event.ActionEvent evt){
-        System.out.println("Welcome to NO2Hunger Food Banks");
+        System.out.println("Welcome to No2Hunger Food Banks");
     }
     /**
      * @param args the command line arguments
