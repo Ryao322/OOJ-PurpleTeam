@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import foodwastetracker.FoodWasteGUI;
 import foodallergies.AllergyDashboard;
-import benita.oops.benitaca.FoodBank;
+import benita.oops.benitaca.FoodBankHomePageGUI;
 
 
 /**
@@ -31,28 +31,33 @@ public class ZeroHunger extends JFrame {
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
         titleLabel.setBounds(50, 30, 800, 40);
         add(titleLabel);
-
+        
+    // 1. FOOD WASTE TRACKER section
+        
         wasteTrackerBtn = new JButton("1. Food Waste Tracker");
         wasteTrackerBtn.setBounds(40, 120, 260, 60);
         wasteTrackerBtn.addActionListener(e -> {
             statusLabel.setText("Opening Food Waste Tracker...");
-            runWasteTracker();
+            runFoodWasteGUI().setVisible(true);
         });
         add(wasteTrackerBtn);
+        
+    // 2. COMMUNITY FOOD BANK DIRECTORY section
 
         foodBankBtn = new JButton("2. Community Food Bank Directory");
         foodBankBtn.setBounds(320, 120, 260, 60);
         foodBankBtn.addActionListener(e -> {
             statusLabel.setText("Opening Food Bank Directory...");
-            runFoodBankDirectory();
+            runFoodBankHomePageGUI().setVisible(true);
         });
         add(foodBankBtn);
-
+        
+   // 3. ALLERGY & DIETARY REQUIREMENTS section
         allergyBtn = new JButton("3. Allergy & Dietary Requirements");
         allergyBtn.setBounds(600, 120, 260, 60);
         allergyBtn.addActionListener(e -> {
             statusLabel.setText("Opening Allergy & Dietary Requirements...");
-            runAllergyRequirements();
+            runAllergyDashboard().setVisible(true);
         });
         add(allergyBtn);
 
@@ -69,14 +74,14 @@ public class ZeroHunger extends JFrame {
 
     // 1. FOOD WASTE TRACKER
 
-    private void runWasteTracker() {
+    private void runFoodWasteGUI() {
         new FoodWasteGUI().setVisible(true);
     }
 
     // 2. COMMUNITY FOOD BANK DIRECTORY
 
-    private void runFoodBankDirectory() {
-        new FoodBankGUI().setVisible(true);
+    private void runFoodBankHomePageGUI() {
+        new FoodBankHomePageGUI().setVisible(true);
         JOptionPane.showMessageDialog(this,
                 "Community Food Bank.");
     }
@@ -84,7 +89,7 @@ public class ZeroHunger extends JFrame {
     // 3. ALLERGY & DIETARY REQUIREMENTS
 
     private void runAllergyDashboard() {
-        new AllergyGUI().setVisible(true);
+        new AllergyDashboard().setVisible(true);
         JOptionPane.showMessageDialog(this,
                 "Allergy & Dietary Requirements.");
     }
