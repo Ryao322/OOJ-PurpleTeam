@@ -176,7 +176,7 @@ public class FindSuitableFood extends javax.swing.JFrame {
         boolean profileFound = false;
         boolean currentUserFound = false;
 
-        // STEP 1: Read allergies.txt
+        // Read allergies.txt
         try (BufferedReader allergyReader
                 = new BufferedReader(new FileReader("allergies.txt"))) {
 
@@ -227,7 +227,7 @@ public class FindSuitableFood extends javax.swing.JFrame {
 
         StringBuilder results = new StringBuilder();
 
-        // STEP 2: Read foods.txt
+        // Read foods.txt
         try (BufferedReader reader
                 = new BufferedReader(new FileReader("foods.txt"))) {
 
@@ -263,7 +263,7 @@ public class FindSuitableFood extends javax.swing.JFrame {
                             }
                         }
 
-                        // STEP 4: Only display safe foods
+                        // Only display safe foods
                         if (!hasAllergen) {
 
                             results.append("Food: ")
@@ -288,7 +288,7 @@ public class FindSuitableFood extends javax.swing.JFrame {
             return;
         }
 
-        // STEP 5: Display results
+        // Display results
         if (results.length() == 0) {
 
             txtFoodResults.setText(
