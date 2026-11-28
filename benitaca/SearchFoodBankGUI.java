@@ -176,12 +176,9 @@ public class SearchFoodBankGUI extends javax.swing.JFrame {
     //check each food bank
     for (FoodBankDetails bank : banks) {
 
-        if (bank.getAddress().toLowerCase()
-                .contains(address.toLowerCase())
-                && (diet.equals("No Preference")
-                || bank.getDietaryOptions().toLowerCase()
-                .contains(diet.toLowerCase()))
-                && bank.getOpeningHours().toLowerCase()
+        if (bank.getAddress().toLowerCase() .contains(address.toLowerCase()) && (diet.equals("No Preference") 
+                || bank.getDietaryOptions().toLowerCase()                                        
+                .contains(diet.toLowerCase()))&& bank.getOpeningHours().toLowerCase()
                 .contains(hours.toLowerCase())) {
 
             results = results + bank.toString() + "\n\n";
