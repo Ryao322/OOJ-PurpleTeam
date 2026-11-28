@@ -8,48 +8,62 @@ package benita.oops.benitaca;
  *
  * @author benit
  */
+
 public class FoodBankDetails {
+
+    // Variables
     private String foodBankName;
     private String address;
-    private int openingHours;
+    private String openingHours;
     private String dietaryOptions;
-    
-    //Constructor 
-    
-    public void setFoodBankName(String inName){
-        foodBankName = inName;    
+
+    // Constructor
+    public FoodBankDetails(String name, String location, String hours, String diet) {
+
+        foodBankName = name;
+        address = location;
+        openingHours = hours;
+        dietaryOptions = diet;
     }
-   
-    public void setAddress(String inLocation){
-        address = inLocation;
+
+    // setters
+    public void setFoodBankName(String name) {
+        foodBankName = name;
     }
-    
-    public void setOpeningHours(int inHours){
-        openingHours = inHours;
+
+    public void setAddress(String location) {
+        address = location;
     }
-    
-    public void setDietaryOptions(String inDiet){
-        dietaryOptions = inDiet;
+
+    public void setOpeningHours(String hours) {
+        openingHours = hours;
     }
-    
-    //Getters
-    
-    public String getFoodBankName(){
-       return foodBankName;
+
+    public void setDietaryOptions(String diet) {
+        dietaryOptions = diet;
     }
-    
-    public String getAddress(){
-       return address;
+
+    // getters
+    public String getFoodBankName() {
+        return foodBankName;
     }
-   
-    public String getDietaryOptions(){
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getOpeningHours() {
+        return openingHours;
+    }
+
+    public String getDietaryOptions() {
         return dietaryOptions;
     }
     
-    public int getOpeningHours(){
-       return openingHours;
-    }
-    
+    // Display food bank information
+public String toString() {
+
+    return "Food Bank Name: " + foodBankName + "Address: " + address + "Opening Hours: " + openingHours + "Dietary Options: " + dietaryOptions;
 }
 
-
+}

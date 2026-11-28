@@ -8,31 +8,71 @@ package benita.oops.benitaca;
  *
  * @author benit
  */
+
+import java.util.ArrayList;
+
 public class FoodBankDirectory {
-    
-    //Variables 
-    private String foodBankName;
-    private String address;
-    private int openingHours;
-    private String dietaryOptions;
 
+    // ArrayList
+    private ArrayList<FoodBankDetails> foodBanks;
+    public ArrayList<FoodBankDetails> getAllFoodBanks() {
+    return new ArrayList<>(foodBanks);
+}
+    
+        
+    // Constructor
+    public FoodBankDirectory() {
+        foodBanks = new ArrayList<FoodBankDetails>();
+    }
 
-    //Setters
-    public void setFoodBankName(String inName){
-        foodBankName = inName;    
+    // food bank
+    public void addFoodBank(FoodBankDetails bank) {
+        foodBanks.add(bank);
     }
-   
-    public void setOpeningHours(int inHours){
-        openingHours = inHours;
+
+    // display all food banks
+    public void displayFoodBanks() {
+
+        for (int i = 0; i < foodBanks.size(); i++) {
+
+            System.out.println(foodBanks.get(i).getFoodBankName());
+
+            System.out.println(foodBanks.get(i).getAddress());
+
+            System.out.println(foodBanks.get(i).getOpeningHours());
+
+            System.out.println(foodBanks.get(i).getDietaryOptions());
+
+            System.out.println();
+        }
     }
-    
-    //Getters
-    public String getAddress(){
-       return address;
+
+    // address
+    public void searchByAddress(String location) {
+
+        for (int i = 0; i < foodBanks.size(); i++) {
+
+            if (foodBanks.get(i).getAddress()
+                    .toLowerCase().contains(location.toLowerCase())) {
+
+                System.out.println(foodBanks.get(i).getFoodBankName());
+                System.out.println(foodBanks.get(i).getAddress());
+            }
+        }
     }
-   
-    public String getDietaryOptions(){
-        return dietaryOptions;
+
+    // dietary options
+    public void searchByDiet(String diet) {
+
+        for (int i = 0; i < foodBanks.size(); i++) {
+
+            if (foodBanks.get(i).getDietaryOptions()
+                    .toLowerCase().contains(diet.toLowerCase())) {
+
+                System.out.println(foodBanks.get(i).getFoodBankName());
+                System.out.println(foodBanks.get(i).getDietaryOptions());
+            }
+        }
     }
-    
+
 }

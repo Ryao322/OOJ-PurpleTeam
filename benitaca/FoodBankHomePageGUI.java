@@ -26,6 +26,12 @@ public class FoodBankHomePageGUI extends javax.swing.JFrame {
         
         nameList = new ArrayList<String>();
         initComponents();
+        
+       // screenMessage.setText(
+         // "Welcome to NO2Hunger Food Banks! " +
+                
+          // "    Find a local food bank in your area"     
+        //);
     }
     
   //  public FoodBankHomePageGUI() {
@@ -46,58 +52,92 @@ public class FoodBankHomePageGUI extends javax.swing.JFrame {
         foodBankDetails = new javax.swing.JButton();
         foodBankDirectory = new javax.swing.JButton();
         searchFoodBank = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        screenMessage = new javax.swing.JTextPane();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jInternalFrame1.setBackground(new java.awt.Color(240, 255, 240));
+        jInternalFrame1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jInternalFrame1.setVisible(true);
 
-        foodBank.setText("Food Bank");
+        foodBank.setBackground(new java.awt.Color(0, 100, 0));
+        foodBank.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        foodBank.setForeground(new java.awt.Color(240, 255, 240));
+        foodBank.setText("Donate/Collect Food");
+        foodBank.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         foodBank.addActionListener(this::foodBankActionPerformed);
 
-        foodBankDetails.setText("Details");
+        foodBankDetails.setBackground(new java.awt.Color(0, 100, 0));
+        foodBankDetails.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        foodBankDetails.setForeground(new java.awt.Color(240, 255, 240));
+        foodBankDetails.setText("Food Bank Details");
+        foodBankDetails.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         foodBankDetails.addActionListener(this::foodBankDetailsActionPerformed);
 
-        foodBankDirectory.setText("Directory");
+        foodBankDirectory.setBackground(new java.awt.Color(0, 100, 0));
+        foodBankDirectory.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        foodBankDirectory.setForeground(new java.awt.Color(240, 255, 240));
+        foodBankDirectory.setText(" All Food Banks");
+        foodBankDirectory.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         foodBankDirectory.addActionListener(this::foodBankDirectoryActionPerformed);
 
-        searchFoodBank.setText("Search");
+        searchFoodBank.setBackground(new java.awt.Color(0, 100, 0));
+        searchFoodBank.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        searchFoodBank.setForeground(new java.awt.Color(240, 255, 240));
+        searchFoodBank.setText("Search Food Banks");
+        searchFoodBank.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         searchFoodBank.addActionListener(this::searchFoodBankActionPerformed);
 
-        jScrollPane1.setViewportView(screenMessage);
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 100, 0));
+        jLabel1.setText("Welcome to NO2Hunger Food Banks");
+
+        jLabel2.setForeground(new java.awt.Color(0, 100, 0));
+        jLabel2.setText("Find Food Banks in your local area");
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(foodBank)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(foodBankDetails)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(foodBankDirectory)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchFoodBank)
-                .addGap(19, 19, 19))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(6, 6, 6))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGap(0, 52, Short.MAX_VALUE)
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(foodBank)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(foodBankDetails))
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(foodBankDirectory)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(searchFoodBank)))))
+                .addGap(52, 52, 52))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(foodBankDirectory)
                     .addComponent(foodBank)
-                    .addComponent(foodBankDetails)
-                    .addComponent(searchFoodBank))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addComponent(foodBankDetails))
+                .addGap(35, 35, 35)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchFoodBank)
+                    .addComponent(foodBankDirectory))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,11 +147,14 @@ public class FoodBankHomePageGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jInternalFrame1)
-                .addContainerGap())
+                .addGap(198, 198, 198))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jInternalFrame1)
+                .addContainerGap())
         );
 
         pack();
@@ -119,21 +162,30 @@ public class FoodBankHomePageGUI extends javax.swing.JFrame {
 
     private void foodBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodBankActionPerformed
         // TODO add your handling code here:
+        //open food bank screen
     }//GEN-LAST:event_foodBankActionPerformed
 
     private void foodBankDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodBankDetailsActionPerformed
         // TODO add your handling code here:
+        //open food bank details
     }//GEN-LAST:event_foodBankDetailsActionPerformed
 
     private void foodBankDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodBankDirectoryActionPerformed
         // TODO add your handling code here:
+        //shows all food banks
     }//GEN-LAST:event_foodBankDirectoryActionPerformed
 
     private void searchFoodBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFoodBankActionPerformed
         // TODO add your handling code here:
+        //open the search screen
+        
+        SearchFoodBankGUI search = new SearchFoodBankGUI();
+        search.setVisible(true);
+
+        
     }//GEN-LAST:event_searchFoodBankActionPerformed
     private void screenMessageActionPerformed(java.awt.event.ActionEvent evt){
-        System.out.println("Welcome to No2Hunger Food Banks");
+        System.out.println("Welcome to NO2Hunger Food Banks");
     }
     /**
      * @param args the command line arguments
@@ -165,8 +217,8 @@ public class FoodBankHomePageGUI extends javax.swing.JFrame {
     private javax.swing.JButton foodBankDetails;
     private javax.swing.JButton foodBankDirectory;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane screenMessage;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton searchFoodBank;
     // End of variables declaration//GEN-END:variables
 }
